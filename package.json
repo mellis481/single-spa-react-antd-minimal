@@ -1,0 +1,17 @@
+{
+  "name": "single-spa-react-antd-minimal",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "19.5.6",
+    "nx": "19.5.6"
+  },
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*",
+    "packages/*"
+  ]
+}
