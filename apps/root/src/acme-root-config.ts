@@ -12,6 +12,12 @@ registerApplication({
   activeWhen: ["/about"],
 });
 
+registerApplication({
+  name: "@acme/mf-chat",
+  app: () => System.import<LifeCycles>("@acme/mf-chat"),
+  activeWhen: () => true,
+});
+
 start({
   urlRerouteOnly: true,
 });

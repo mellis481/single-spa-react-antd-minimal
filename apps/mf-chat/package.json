@@ -1,12 +1,12 @@
 {
-  "name": "@acme/mf-about",
-  "types": "dist/acme-mf-about.d.ts",
+  "name": "@acme/mf-chat",
+  "types": "dist/acme-mf-chat.d.ts",
   "scripts": {
     "build": "concurrently npm:build:*",
     "build:types": "tsc",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
-    "start": "webpack serve --port 9002",
+    "start": "webpack serve --port 9003",
     "start:standalone": "webpack serve --env standalone",
     "format": "prettier --write .",
     "lint": "eslint src --ext js,ts,tsx",
