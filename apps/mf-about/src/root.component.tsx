@@ -1,4 +1,5 @@
 import { type PropsWithChildren } from "react";
+import { ConfigProvider } from "antd";
 
 type RootProps = {
   name: string;
@@ -6,11 +7,13 @@ type RootProps = {
 
 export default function Root(props: PropsWithChildren<RootProps>) {
   return (
-    <div className="vtx-ui-mf-my-info__root">
-      <div className="vtx-ui-mf-my-info__content">
-        <section>{props.name} is mounted!</section>
-        {props.children}
+    <ConfigProvider theme={{ cssVar: true, hashed: true }}>
+      <div className="mf-about__root">
+        <div className="mf-about__content">
+          <section>{props.name} is mounted!</section>
+          {props.children}
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   );
 }
