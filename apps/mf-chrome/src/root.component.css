@@ -1,0 +1,18 @@
+header {
+  display: flex;
+}
+
+header a {
+  color: blue;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+header a:not(:first-child):before {
+  content: "|";
+  margin-right: 0.5rem;
+}
+
+header a:hover {
+  color: mediumvioletred;
+}
