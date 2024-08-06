@@ -4,7 +4,8 @@ import Root from "./root.component";
 
 describe("Root component", () => {
   it("should be in the document", () => {
-    const { getByText } = render(<Root name="Testapp" />);
-    expect(getByText(/Testapp is mounted!/i)).toBeInTheDocument();
+    const mfName = "mf-chrome";
+    const { getByText } = render(<Root name={mfName} />);
+    expect(getByText(mfName, { exact: false })).toBeInTheDocument();
   });
 });

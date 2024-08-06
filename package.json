@@ -5,6 +5,10 @@
   "scripts": {
     "build": "npx nx run-many --target=build --all=true",
     "start": "npx nx run-many --target=start --all=true --parallel=5",
+    "start:root": "npx nx run @acme/root-config:start",
+    "start:chrome": "npx nx run @acme/mf-chrome:start",
+    "start:about": "npx nx run @acme/mf-about:start",
+    "start:chat": "npx nx run @acme/mf-chat:start",
     "format": "npx nx run-many --target=format --all=true",
     "lint": "npx nx run-many --target=lint --all=true",
     "test": "npx nx run-many --target=test --all=true"
