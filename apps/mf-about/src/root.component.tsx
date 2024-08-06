@@ -1,5 +1,5 @@
-import { type PropsWithChildren } from "react";
-import { ConfigProvider } from "antd";
+import { type PropsWithChildren } from 'react';
+import { ConfigProvider } from 'antd';
 
 type RootProps = {
   name: string;
@@ -10,7 +10,7 @@ export default function Root(props: PropsWithChildren<RootProps>) {
     <ConfigProvider theme={{ cssVar: true, hashed: true }}>
       <div className="mf-about__root">
         <div className="mf-about__content">
-          <section>{props.name} is mounted!</section>
+          <section>{props.name}</section>
           {props.children}
         </div>
       </div>

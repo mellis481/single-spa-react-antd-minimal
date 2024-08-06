@@ -13,4 +13,5 @@ Run all the applications at once in parallel.
 
 ```sh
 npm run start
+visit http://localhost:9000
 ```

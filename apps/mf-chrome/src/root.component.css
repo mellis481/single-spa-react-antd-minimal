@@ -9,10 +9,28 @@ header a {
 }
 
 header a:not(:first-child):before {
-  content: "|";
+  content: '|';
   margin-right: 0.5rem;
 }
 
 header a:hover {
   color: mediumvioletred;
+}
+
+[id='single-spa-application:@acme/mf-chat'] {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  border: 1px solid gray;
+}
+
+#mf-chrome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #eee;
 }

@@ -79,20 +79,24 @@
     <% } %>
 
     <script>
-      System.import("@acme/root-config").then((rootConfig) =>
-        rootConfig.initialize()
-      );
+      System.import('@acme/root-config').then((rootConfig) => rootConfig.initialize());
     </script>
+    <style type="text/css">
+      main {
+        margin-top: 50px;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
-    <main></main>
+    <div id="single-spa-application:@acme/mf-chrome"></div>
+    <main>
+      <div id="single-spa-application:@acme/mf-about"></div>
+    </main>
     <script>
-      System.import("@acme/root-config");
+      System.import('@acme/root-config');
     </script>
-    <import-map-overrides-full
-      show-when-local-storage="devtools"
-      dev-libs
-    ></import-map-overrides-full>
+    <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
   </body>
 </html>
