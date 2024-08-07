@@ -1,15 +1,11 @@
-import { useEffect, useState, type PropsWithChildren } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
-import { DownloadOutlined } from "@ant-design/icons";
-import { Button, ConfigProvider } from "antd";
-import "./root.component.css";
+import { useEffect, useState } from 'preact/hooks';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { DownloadOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider } from 'antd';
+import { Fragment, FunctionalComponent, h } from 'preact';
+import './root.component.css';
 
-type RootProps = {
-  name: string;
-  registerChatMfe: () => void;
-};
-
-export default function Root(props: PropsWithChildren<RootProps>) {
+export default function Root(props: any) {
   const [hasRegisteredChat, setHasRegisteredChat] = useState(false);
 
   useEffect(() => {
@@ -30,9 +26,9 @@ export default function Root(props: PropsWithChildren<RootProps>) {
           <div id="mf-chrome" tabIndex={-1}>
             <header>
               <div>
-                <Link to="/">Acme</Link>
+                {/* <Link to="/">Acme</Link>
                 <Link to="/about">About</Link>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">Contact</Link> */}
               </div>
               <div>
                 <Button icon={<DownloadOutlined />}></Button>
@@ -55,7 +51,7 @@ const useStyleObserver = () => {
           mutation.addedNodes.forEach((node) => {
             if (node instanceof HTMLStyleElement) {
               // eslint-disable-next-line no-console
-              console.log("STYLE-ADDED", mutation.type, node);
+              console.log('STYLE-ADDED', mutation.type, node);
             }
           });
         }
@@ -63,7 +59,7 @@ const useStyleObserver = () => {
           mutation.removedNodes.forEach((node) => {
             if (node instanceof HTMLStyleElement) {
               // eslint-disable-next-line no-console
-              console.log("STYLE-REMOVED", mutation.type, node);
+              console.log('STYLE-REMOVED', mutation.type, node);
             }
           });
         }
@@ -71,7 +67,7 @@ const useStyleObserver = () => {
     });
 
     // eslint-disable-next-line no-console
-    console.log("Style observer started");
+    console.log('Style observer started');
     observer.observe(document.head, { childList: true });
 
     return () => {

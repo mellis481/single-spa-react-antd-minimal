@@ -16,16 +16,13 @@
   },
   "dependencies": {
     "@types/jest": "^27.0.1",
-    "@types/react": "^17.0.80",
-    "@types/react-dom": "^17.0.25",
     "@types/systemjs": "^6.1.1",
     "@types/webpack-env": "^1.16.2",
     "antd": "^5.20.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.26.0",
+    "preact": "^10.19.3",
+    "react-router-dom": "^5.3.4",
     "single-spa": "^5.9.3",
-    "single-spa-react": "^4.3.1"
+    "single-spa-preact": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
