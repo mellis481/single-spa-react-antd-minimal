@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from 'react';
-import { Button, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Checkbox } from 'antd';
 import { SearchOutlined, DownloadOutlined } from '@ant-design/icons';
 import './root.component.css';
 
@@ -17,6 +17,7 @@ export default function Root(props: PropsWithChildren<RootProps>) {
           <Button>
             <SearchOutlined />
           </Button>
+          <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={() => {}} />
         </div>
       </div>
     </ConfigProvider>
