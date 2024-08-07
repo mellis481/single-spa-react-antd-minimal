@@ -54,10 +54,10 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "@acme/root-config": "//localhost:9000/acme-root-config.js",
-          "@acme/mf-chrome": "//localhost:9001/acme-mf-chrome.js",
-          "@acme/mf-about": "//localhost:9002/acme-mf-about.js",
-          "@acme/mf-chat": "//localhost:9003/acme-mf-chat.js"
+          "@acme/root-config": "//localhost:4000/acme-root-config.js",
+          "@acme/mf-chrome": "//localhost:4001/acme-mf-chrome.js",
+          "@acme/mf-about": "//localhost:4002/acme-mf-about.js",
+          "@acme/mf-chat": "//localhost:4003/acme-mf-chat.js"
         }
       }
     </script>
@@ -79,7 +79,9 @@
     <% } %>
 
     <script>
-      System.import('@acme/root-config').then((rootConfig) => rootConfig.initialize());
+      System.import("@acme/root-config").then((rootConfig) =>
+        rootConfig.initialize()
+      );
     </script>
     <style type="text/css">
       main {
@@ -95,8 +97,11 @@
       <div id="single-spa-application:@acme/mf-about"></div>
     </main>
     <script>
-      System.import('@acme/root-config');
+      System.import("@acme/root-config");
     </script>
-    <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+    <import-map-overrides-full
+      show-when-local-storage="devtools"
+      dev-libs
+    ></import-map-overrides-full>
   </body>
 </html>

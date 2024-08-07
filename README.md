@@ -9,9 +9,10 @@ A minimal reproduction of Single-SPA with React and Ant Design.
 
 ## Quick Start
 
-Run all the applications at once in parallel.
+Run all the applications at once in parallel:
 
 ```sh
 npm run start
-visit http://localhost:9000
 ```
+
+Then visit <http://localhost:4000>.

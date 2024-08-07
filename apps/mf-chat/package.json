@@ -6,7 +6,7 @@
     "build:types": "tsc",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
-    "start": "webpack serve --port 9003",
+    "start": "webpack serve --port 4003",
     "start:standalone": "webpack serve --env standalone",
     "format": "prettier --write .",
     "lint": "eslint src --ext js,ts,tsx",

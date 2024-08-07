@@ -5,7 +5,7 @@
     "build": "concurrently npm:build:*",
     "build:types": "tsc",
     "build:webpack": "webpack --mode=production",
-    "start": "webpack serve --port 9000 --env isLocal",
+    "start": "webpack serve --port 4000 --env isLocal",
     "format": "prettier --write .",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests"
