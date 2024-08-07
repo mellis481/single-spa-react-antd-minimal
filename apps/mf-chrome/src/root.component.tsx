@@ -1,8 +1,8 @@
-import { useEffect, useState, type PropsWithChildren } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { DownloadOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider } from 'antd';
-import './root.component.css';
+import { useEffect, useState, type PropsWithChildren } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
+import { DownloadOutlined } from "@ant-design/icons";
+import { Button, ConfigProvider } from "antd";
+import "./root.component.css";
 
 type RootProps = {
   name: string;
@@ -21,6 +21,8 @@ export default function Root(props: PropsWithChildren<RootProps>) {
     }
   }, []);
 
+  useStyleObserver();
+
   return (
     <>
       <ConfigProvider theme={{ cssVar: true, hashed: true }}>
@@ -30,6 +32,7 @@ export default function Root(props: PropsWithChildren<RootProps>) {
               <div>
                 <Link to="/">Acme</Link>
                 <Link to="/about">About</Link>
+                <Link to="/contact">Contact</Link>
               </div>
               <div>
                 <Button icon={<DownloadOutlined />}></Button>
@@ -43,3 +46,36 @@ export default function Root(props: PropsWithChildren<RootProps>) {
     </>
   );
 }
+
+const useStyleObserver = () => {
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length > 0) {
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof HTMLStyleElement) {
+              // eslint-disable-next-line no-console
+              console.log("STYLE-ADDED", mutation.type, node);
+            }
+          });
+        }
+        if (mutation.removedNodes.length > 0) {
+          mutation.removedNodes.forEach((node) => {
+            if (node instanceof HTMLStyleElement) {
+              // eslint-disable-next-line no-console
+              console.log("STYLE-REMOVED", mutation.type, node);
+            }
+          });
+        }
+      });
+    });
+
+    // eslint-disable-next-line no-console
+    console.log("Style observer started");
+    observer.observe(document.head, { childList: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+};
