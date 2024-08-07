@@ -5,7 +5,11 @@ import { Button, ConfigProvider } from 'antd';
 import { Fragment, FunctionalComponent, h } from 'preact';
 import './root.component.css';
 
-export default function Root(props: any) {
+type RootProps = ChromeProps & {
+  registerChatMfe: () => void;
+};
+
+const Root: FunctionalComponent<RootProps> = (props) => {
   const [hasRegisteredChat, setHasRegisteredChat] = useState(false);
 
   useEffect(() => {
@@ -17,61 +21,36 @@ export default function Root(props: any) {
     }
   }, []);
 
-  useStyleObserver();
-
   return (
-    <>
-      <ConfigProvider theme={{ cssVar: true, hashed: true }}>
-        <BrowserRouter>
-          <div id="mf-chrome" tabIndex={-1}>
-            <header>
-              <div>
-                {/* <Link to="/">Acme</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contact">Contact</Link> */}
-              </div>
-              <div>
-                <Button icon={<DownloadOutlined />}></Button>
-              </div>
-            </header>
-            <section>{props.name}</section>
-          </div>
-        </BrowserRouter>
-      </ConfigProvider>
+    <Fragment>
+      <ConfigProvider theme={{ cssVar: true, hashed: true }}></ConfigProvider>
       <div id="single-spa-application:@acme/mf-chat"></div>
-    </>
+    </Fragment>
   );
-}
-
-const useStyleObserver = () => {
-  useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.addedNodes.length > 0) {
-          mutation.addedNodes.forEach((node) => {
-            if (node instanceof HTMLStyleElement) {
-              // eslint-disable-next-line no-console
-              console.log('STYLE-ADDED', mutation.type, node);
-            }
-          });
-        }
-        if (mutation.removedNodes.length > 0) {
-          mutation.removedNodes.forEach((node) => {
-            if (node instanceof HTMLStyleElement) {
-              // eslint-disable-next-line no-console
-              console.log('STYLE-REMOVED', mutation.type, node);
-            }
-          });
-        }
-      });
-    });
-
-    // eslint-disable-next-line no-console
-    console.log('Style observer started');
-    observer.observe(document.head, { childList: true });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 };
+
+type ChromeProps = {
+  name: string;
+};
+
+const Chrome: FunctionalComponent<ChromeProps> = (props) => {
+  return (
+    <BrowserRouter>
+      <div id="mf-chrome" tabIndex={-1}>
+        <header>
+          <div>
+            <Link to="/">Acme</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
+          <div>
+            <Button icon={<DownloadOutlined />}></Button>
+          </div>
+        </header>
+        <section>{props.name}</section>
+      </div>
+    </BrowserRouter>
+  );
+};
+
+export default Root;
