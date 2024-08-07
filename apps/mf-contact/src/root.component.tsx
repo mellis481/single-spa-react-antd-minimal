@@ -9,7 +9,10 @@ export default function Root(props) {
       <Button>
         <SearchOutlined />
       </Button>
-      <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={() => {}} />
+      <Checkbox.Group
+        options={['Apple', 'Pear', 'Orange']}
+        onChange={() => {}}
+      />
     </>
   );
 }

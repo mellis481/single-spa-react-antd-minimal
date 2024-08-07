@@ -17,7 +17,10 @@ export default function Root(props: PropsWithChildren<RootProps>) {
           <Button>
             <SearchOutlined />
           </Button>
-          <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={() => {}} />
+          <Checkbox.Group
+            options={['Apple', 'Pear', 'Orange']}
+            onChange={() => {}}
+          />
         </div>
       </div>
     </ConfigProvider>

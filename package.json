@@ -11,7 +11,7 @@
     "start:chat": "nx run @acme/mf-chat:start",
     "format": "nx run-many --target=format --all=true",
     "lint": "nx run-many --target=lint --all=true",
-    "test": "nx run-many --target=test --all=true"
+    "test": "nx run-many --target=test --all=true --passWithNoTests"
   },
   "dependencies": {},
   "devDependencies": {
